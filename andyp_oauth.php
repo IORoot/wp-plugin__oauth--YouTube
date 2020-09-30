@@ -10,3 +10,11 @@
  * Domain Path:       /languages
  */
 
+define( 'ANDYP_OAUTH_URL', plugins_url( '/', __FILE__ ) );
+define( 'ANDYP_OAUTH_PATH', __DIR__ );
+define('GOOGLE_APPLICATION_CREDENTIALS', __DIR__.'/client_secret.json');
+
+// ┌─────────────────────────────────────────────────────────────────────────┐
+// │                         Use composer autoloader                         │
+// └─────────────────────────────────────────────────────────────────────────┘
+require __DIR__.'/vendor/autoload.php';
