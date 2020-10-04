@@ -1,6 +1,6 @@
 <?php
 
-namespace AndyP\oauth;
+namespace AndyP\oauth\yt;
 
 
 class youtube
@@ -14,17 +14,10 @@ class youtube
 
 
         /**
-         * Create the text ACF admin page
-         */
-        new \AndyP\oauth\acf\oauth_admin_page();
-
-
-
-        /**
          * Initialise the custom ACF field type
          * oAuth Button for YouTube.
          */
-        new \AndyP\oauth\acf\acf_youtube_oauth_button();
+        new \AndyP\oauth\yt\acf\acf_youtube_oauth_button();
 
 
 
@@ -35,7 +28,7 @@ class youtube
          * parse it for an 'action' field and add
          * as a parameter.
          */
-        new \AndyP\oauth\ajax\intercept_state();
+        new \AndyP\oauth\yt\ajax\intercept_state();
 
 
 
@@ -43,9 +36,9 @@ class youtube
          * Create the AJAX endpoints for Google to call
          * and the Javascript to access.
          */
-        new \AndyP\oauth\ajax\oauth_callback();
-        new \AndyP\oauth\ajax\reset_callback();
-        new \AndyP\oauth\ajax\status_callback();
+        new \AndyP\oauth\yt\ajax\oauth_callback();
+        new \AndyP\oauth\yt\ajax\reset_callback();
+        new \AndyP\oauth\yt\ajax\status_callback();
 
 
     }

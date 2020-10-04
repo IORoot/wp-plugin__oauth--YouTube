@@ -1,6 +1,6 @@
 <?php
 
-namespace AndyP\oauth\ajax;
+namespace AndyP\oauth\yt\ajax;
 
 class intercept_state
 {

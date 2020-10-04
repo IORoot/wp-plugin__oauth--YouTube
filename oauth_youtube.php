@@ -1,7 +1,7 @@
 <?php
 /*
  * @wordpress-plugin
- * Plugin Name:       _ANDYP - OAUTH - YouTube
+ * Plugin Name:       _ANDYP - ACF OAUTH - YouTube
  * Plugin URI:        http://londonparkour.com
  * Description:       <strong>🔌PLUGIN</strong> | <em>ANDYP > Universal Exporter</em> | oAuth for YouTube
  * Version:           1.0.0
@@ -10,9 +10,9 @@
  * Domain Path:       /languages
  */
 
-define( 'ANDYP_OAUTH_YT_URL', plugins_url( '/', __FILE__ ) );
-define( 'ANDYP_OAUTH_YT_PATH', __DIR__ );
 define( 'YOUTUBE_GOOGLE_APPLICATION_CREDENTIALS', __DIR__.'/client_secret.json');
+define( 'YOUTUBE_GOOGLE_APPLICATION_SCOPE',       "https://www.googleapis.com/auth/youtube.force-ssl");
+define( 'YOUTUBE_GOOGLE_TRANSIENT_NAME',          "YT_OAUTH_REFRESH_TOKEN");
 
 // ┌─────────────────────────────────────────────────────────────────────────┐
 // │                         Use composer autoloader                         │

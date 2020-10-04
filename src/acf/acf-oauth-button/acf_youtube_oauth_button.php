@@ -1,6 +1,6 @@
 <?php
 
-namespace AndyP\oauth\acf;
+namespace AndyP\oauth\yt\acf;
 
 if( ! defined( 'ABSPATH' ) ) exit;  								// exit if accessed directly
 if( class_exists('acf_youtube_oauth_button') ) return; 				// check if class already exists
@@ -31,7 +31,7 @@ class acf_youtube_oauth_button {
 
 	public function __construct() {
 
-		$client = new \AndyP\oauth\client\google_client();
+		$client = new \AndyP\oauth\yt\client\google_client();
 		$client->set_ajax_callback_endpoint('youtubeoauth');
 		$client->create_authentication_url();
 		$this->auth_url = $client->get_auth_url();
@@ -39,7 +39,7 @@ class acf_youtube_oauth_button {
 		// settings
 		// - these will be passed into the field class.
 		$status = '';
-		if (get_transient('YT_OAUTH_REFRESH_TOKEN') == true)
+		if (get_transient(YOUTUBE_GOOGLE_TRANSIENT_NAME) == true)
         {
 			$status = 'enabled';
         }

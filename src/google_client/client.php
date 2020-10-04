@@ -1,6 +1,6 @@
 <?php
 
-namespace AndyP\oauth\client;
+namespace AndyP\oauth\yt\client;
 
 class google_client
 {
@@ -74,7 +74,7 @@ class google_client
 		/**
 		 * Set the permissions we want to request from the user
 		 */
-		$this->client->addScope(\Google_Service_YouTube::YOUTUBE_FORCE_SSL);
+		$this->client->addScope(YOUTUBE_GOOGLE_APPLICATION_SCOPE);
 
 
 		/**

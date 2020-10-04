@@ -1,6 +1,6 @@
 <?php
 
-namespace AndyP\oauth\acf;
+namespace AndyP\oauth\yt\acf;
 
 /**
  * Include ACF into plugin.

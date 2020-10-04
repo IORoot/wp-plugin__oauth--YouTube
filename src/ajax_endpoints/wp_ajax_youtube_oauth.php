@@ -1,6 +1,6 @@
 <?php
 
-namespace AndyP\oauth\ajax;
+namespace AndyP\oauth\yt\ajax;
 
 
 class oauth_callback
@@ -44,7 +44,7 @@ class oauth_callback
 
             $data = base64_decode($_REQUEST['state']);
             $data = json_decode($data, true);
-            $output .=  "<p>Data from State = ". $data . "</p>";
+            $output .=  "<p>Data from State = ". var_dump($data) . "</p>";
             
             $output .=  "<p>Scope = ".$_REQUEST['scope'] . "</p>";
             $output .=  "<p>Please now close this window.</p>";
@@ -61,14 +61,14 @@ class oauth_callback
     private function get_refresh_token()
     {
 
-        $client = new \AndyP\oauth\client\google_client();
+        $client = new \AndyP\oauth\yt\client\google_client();
 		$this->client = $client->get_client();
 
         $this->client->authenticate($this->auth_token);
 
         $this->refresh_token = $this->client->getRefreshToken();
 
-        set_transient( 'YT_OAUTH_REFRESH_TOKEN', $this->refresh_token, WEEK_IN_SECONDS );
+        set_transient( YOUTUBE_GOOGLE_TRANSIENT_NAME, $this->refresh_token, WEEK_IN_SECONDS );
 
     }
 }

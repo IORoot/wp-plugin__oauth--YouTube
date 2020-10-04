@@ -1,6 +1,6 @@
 <?php
 
-namespace AndyP\oauth\ajax;
+namespace AndyP\oauth\yt\ajax;
 
 
 class reset_callback
@@ -17,7 +17,7 @@ class reset_callback
 
 
     public function youtube_reset() {
-        delete_transient( 'YT_OAUTH_REFRESH_TOKEN' );
+        delete_transient( YOUTUBE_GOOGLE_TRANSIENT_NAME );
         wp_send_json_success( true, 200 );
         wp_die(); // this is required to return a proper response
     }
