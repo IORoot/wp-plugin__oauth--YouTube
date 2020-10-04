@@ -44,7 +44,7 @@ class oauth_callback
 
             $data = base64_decode($_REQUEST['state']);
             $data = json_decode($data, true);
-            $output .=  "<p>Data from State = ". var_dump($data) . "</p>";
+            $output .=  "<p>Data from State = ". $data['action'] . "</p>";
             
             $output .=  "<p>Scope = ".$_REQUEST['scope'] . "</p>";
             $output .=  "<p>Please now close this window.</p>";
