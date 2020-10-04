@@ -15,28 +15,129 @@
 	
 	function initialize_field( $field ) {
 		
+		var $button = $field.find('.andyp-oauth__button-youtube');
+		var $trash  = $field.find('.andyp-oauth__button-youtube--trash');
+
+		/**
+		 * Get the current status of the button.
+		 */
+		check_button_status($button, $trash);
+
 		/**
 		 * Event - Click button
 		 */
-		$field.find('button').on( 'click', function(){
-            oauth_do_request();
+		$button.on( 'click', function(){
+            oauth_do_request($button, $trash);
 		});
-		
+
+		/**
+		 * Event - Click trash button
+		 */
+		$trash.on( 'click', function(){
+            reset_transients($button, $trash);
+		});
 		
 	}
 	
+
 	
 
-    /**
-     * Send the user to a new window that
-     * will have the authorisation URL open up in it.
-     * 
-     * ajax_object.auth_url contains the URL from PHP.
-     */
-    function oauth_do_request() {
-        var win = window.open( youtubeoauth.auth_url, "_blank", "width=600,height=600" );
-    }
-	
+	/**
+	 * Opens new window
+	 * 
+	 * Uses ajax_object.auth_url which contains the URL from PHP.
+	 */
+
+	function oauth_do_request($button, $trash) {
+		var $win = window.open( youtubeoauth.auth_url, "_blank", "width=600,height=600" );
+		wait_for_window_close($win, $button, $trash);
+	}
+
+
+	function wait_for_window_close($win, $button, $trash)
+	{
+
+		var check = setInterval( function() {
+
+			// popup was closed
+			if( $win.closed ) {
+
+				// stop the check once window closed.
+				clearInterval( check );
+
+				// force a button check
+				check_button_status( $button, $trash );
+
+			}
+
+		}, 500 );
+
+	}
+
+
+
+
+	/**
+	 * Get current status from server.
+	 */
+	/**
+	 * Get current status from server.
+	 */
+	function check_button_status($button, $trash){
+
+		$.ajax({
+			url 		: youtubeoauth.ajax_url,
+			dataType 	: 'json',
+			data 		:	{
+				action 			: 'youtube_status',
+			}
+		})
+
+		.done( function( status ){
+
+			if (status.data == true){
+				$button.addClass('enabled');
+				$button.html("Logged In");
+				$trash.addClass('enabled');
+			}
+
+			if (status.data == false){
+				$button.removeClass('enabled');
+				$button.html("Login with YouTube");
+				$trash.removeClass('enabled');
+			}
+
+		} );
+		
+
+	}
+
+
+	/**
+	 * Trash button pressed
+	 * 
+	 * Reset the transients and updaate the button.
+	 */
+	function reset_transients($button, $trash)
+	{
+		$.ajax({
+			url 		: youtubeoauth.ajax_url,
+			dataType 	: 'json',
+			data 		:	{
+				action 			: 'youtube_reset',
+			}
+		})
+
+		.done( function( status ){
+
+			if (status.data == true){
+				$button.removeClass('enabled');
+				$button.html("Login with YouTube");
+				$trash.removeClass('enabled');
+			}
+
+		} );
+	}
 
 
 

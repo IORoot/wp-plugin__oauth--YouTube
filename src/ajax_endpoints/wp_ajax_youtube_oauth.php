@@ -6,14 +6,10 @@ namespace AndyP\oauth\ajax;
 class oauth_callback
 {
 
-
-
     private $client;
 
 
-
     private $auth_token;
-
 
 
     private $refresh_token;
@@ -30,8 +26,6 @@ class oauth_callback
     {
         add_action( 'wp_ajax_youtubeoauth', array($this, 'youtube_oauth') );
     }
-
-
 
 
     public function youtube_oauth() 
@@ -62,7 +56,6 @@ class oauth_callback
         wp_die(); // this is required to return a proper response
         
     }
-
 
 
     private function get_refresh_token()

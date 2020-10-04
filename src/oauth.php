@@ -40,11 +40,12 @@ class youtube
 
 
         /**
-         * Create the AJAX endpoint for Google to call.
-         * This will set a transient with the 
-         * refresh_token in it.
+         * Create the AJAX endpoints for Google to call
+         * and the Javascript to access.
          */
         new \AndyP\oauth\ajax\oauth_callback();
+        new \AndyP\oauth\ajax\reset_callback();
+        new \AndyP\oauth\ajax\status_callback();
 
 
     }

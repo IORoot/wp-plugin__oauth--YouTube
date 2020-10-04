@@ -38,10 +38,17 @@ class acf_youtube_oauth_button {
 
 		// settings
 		// - these will be passed into the field class.
+		$status = '';
+		if (get_transient('YT_OAUTH_REFRESH_TOKEN') == true)
+        {
+			$status = 'enabled';
+        }
+
 		$this->settings = array(
 			'version'	=> '1.0.0',
 			'url'		=> plugin_dir_url( __FILE__ ),
 			'path'		=> plugin_dir_path( __FILE__ ),
+			'status'    => $status,
 			'auth_url'	=> $this->auth_url,
 		);
 

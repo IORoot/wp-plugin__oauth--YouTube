@@ -136,18 +136,23 @@ class acf_field_youtube_oauth_button extends \acf_field
 		*  Review the data of $field.
 		*  This will show what data is available
 		*/
+		// echo '<pre>';
+		// print_r($field);
+		// echo '</pre>';
 		
-		echo '<pre>';
-		print_r($field);
-		echo '</pre>';
 		
-		
-		/*
-		*  Create a simple text input using the 'font_size' setting.
-		*/
-		
+	
+		$text = "Login with YouTube";
+		$status = $this->settings['status'];
+
+		if ($status == 'enabled')
+		{
+			$text = "Logged In";
+		}
+
 		?>
-		<button type="button" class="andyp-oauth__button andyp-oauth__button--youtube button-secondary" >Login with YouTube</button>
+		<button type="button" class="button-secondary andyp-oauth__button-youtube <?php echo $status; ?>" ><?php echo $text; ?></button>
+		<button type="button" class="button-secondary andyp-oauth__button-youtube--trash <?php echo $status; ?>"><span class="dashicons dashicons-trash"></span></button>
 		<?php
 	}
 	
