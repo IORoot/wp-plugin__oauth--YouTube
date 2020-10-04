@@ -4,9 +4,9 @@
 /**
  * AJAX Callback used to clear all tokens.
  */
-add_action( 'wp_ajax_delete_youtube_oauth_transients', 'delete_youtube_oauth_transients' );
+add_action( 'wp_ajax_youtube_reset', 'youtube_reset' );
 
-function delete_youtube_oauth_transients() {
+function youtube_reset() {
     delete_transient( 'YT_OAUTH_CODE' );
     delete_transient( 'YT_OAUTH_REFRESH_TOKEN' );
     wp_send_json_success( 'YouTube Tokens Deleted', 200 );

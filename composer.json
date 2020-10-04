@@ -1,6 +1,8 @@
 {
     "autoload": {
-        "psr-4": { "AndyP\\" : "src/" }
+        "classmap": [
+            "src"
+        ]
     },
     "require": {
         "google/apiclient": "^2.7"
