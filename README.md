@@ -1,4 +1,4 @@
-# OAUTH Google Implementation Plugin.
+# OAUTH Google YouTube Implementation Plugin.
 
 For Wordpress and ACF.
 
