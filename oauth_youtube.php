@@ -1,7 +1,7 @@
 <?php
 /*
  * @wordpress-plugin
- * Plugin Name:       _ANDYP - ACF OAUTH - YouTube
+ * Plugin Name:       _ANDYP - ACF - OAUTH for YouTube
  * Plugin URI:        http://londonparkour.com
  * Description:       <strong>🔌PLUGIN</strong> | <em>ANDYP > Universal Exporter</em> | oAuth for YouTube
  * Version:           1.0.0
