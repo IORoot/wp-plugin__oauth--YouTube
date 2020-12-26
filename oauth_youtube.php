@@ -14,6 +14,13 @@ define( 'YOUTUBE_GOOGLE_APPLICATION_CREDENTIALS', __DIR__.'/client_secret.json')
 define( 'YOUTUBE_GOOGLE_APPLICATION_SCOPE',       "https://www.googleapis.com/auth/youtube.force-ssl");
 define( 'YOUTUBE_GOOGLE_TRANSIENT_NAME',          "YT_OAUTH_REFRESH_TOKEN");
 
+
+//  ┌─────────────────────────────────────────────────────────────────────────┐
+//  │                    Register with ANDYP Plugins                          │
+//  └─────────────────────────────────────────────────────────────────────────┘
+require __DIR__.'/src/acf/andyp_plugin_register.php';
+
+
 // ┌─────────────────────────────────────────────────────────────────────────┐
 // │                         Use composer autoloader                         │
 // └─────────────────────────────────────────────────────────────────────────┘
